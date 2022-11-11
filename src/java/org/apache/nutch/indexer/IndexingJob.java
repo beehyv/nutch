@@ -198,6 +198,7 @@ public class IndexingJob extends NutchTool implements Tool {
       return 0;
     } catch (final Exception e) {
       LOG.error("SolrIndexerJob: " + StringUtils.stringifyException(e));
+      LOG.error(e.getMessage(),e);
       return -1;
     }
   }

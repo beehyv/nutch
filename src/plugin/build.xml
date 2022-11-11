@@ -33,10 +33,12 @@
      <ant dir="index-more" target="deploy"/>
      <ant dir="index-metadata" target="deploy"/>
      <ant dir="indexer-solr" target="deploy"/>
-     <!--<ant dir="indexer-elastic" target="deploy"/>-->
-     <ant dir="indexer-elastic2" target="deploy"/>
+     <!--<ant dir="indexer-elastic" target="deploy"/>
+     <ant dir="indexer-elastic2" target="deploy"/>-->
+     <ant dir="index-beehyv" target="deploy"/>
+     <ant dir="indexer-beehyv" target="deploy"/>
      <ant dir="indexer-hbase" target="deploy"/>
-     <ant dir="jsoup-extractor" target="deploy"/>
+	     <!--<ant dir="jsoup-extractor" target="deploy"/>-->
      <ant dir="language-identifier" target="deploy"/>
      <ant dir="lib-http" target="deploy"/>
      <ant dir="lib-nekohtml" target="deploy"/>
@@ -51,7 +53,8 @@
      <ant dir="protocol-sftp" target="deploy"/>
      <ant dir="parse-js" target="deploy"/>
      <ant dir="parse-html" target="deploy"/>
-     <ant dir="parse-tika" target="deploy"/>
+     <ant dir="parse-beehyv" target="deploy"/>
+	     <!--<ant dir="parse-tika" target="deploy"/>-->
      <ant dir="parse-metatags" target="deploy"/>
      <ant dir="scoring-link" target="deploy"/>
      <ant dir="scoring-opic" target="deploy"/>
@@ -79,15 +82,16 @@
   <!-- ====================================================== -->
   <target name="test">
      <ant dir="creativecommons" target="test"/>
-     <ant dir="parse-tika" target="test"/>
+	     <!--  <ant dir="parse-tika" target="test"/>-->
      <ant dir="protocol-file" target="test"/>
      <ant dir="parse-html" target="test"/>
      <ant dir="parse-js" target="test"/>
+     <ant dir="parse-beehyv" target="test"/>
      <ant dir="parse-metatags" target="test"/>
      <ant dir="index-anchor" target="test"/>
      <ant dir="index-basic" target="test"/>
      <ant dir="index-more" target="test"/>
-     <ant dir="jsoup-extractor" target="test"/>
+	     <!--<ant dir="jsoup-extractor" target="test"/>-->
      <ant dir="language-identifier" target="test"/>
      <ant dir="protocol-httpclient" target="test"/>
      <ant dir="protocol-http" target="test"/>
@@ -125,10 +129,12 @@
     <ant dir="index-more" target="clean"/>
     <ant dir="index-metadata" target="clean"/>
     <ant dir="indexer-solr" target="clean"/>
-    <!--<ant dir="indexer-elastic" target="clean"/>-->
-    <ant dir="indexer-elastic2" target="clean"/>
+    <!--<ant dir="indexer-elastic" target="clean"/>
+    <ant dir="indexer-elastic2" target="clean"/>-->
+    <ant dir="index-beehyv" target="clean"/>
+    <ant dir="indexer-beehyv" target="clean"/>
     <ant dir="indexer-hbase" target="clean"/>
-    <ant dir="jsoup-extractor" target="clean"/>
+	    <!--ant dir="jsoup-extractor" target="clean"/>-->
     <ant dir="language-identifier" target="clean"/>
     <ant dir="lib-http" target="clean"/>
     <ant dir="lib-nekohtml" target="clean"/>
@@ -138,9 +144,10 @@
     <ant dir="nutch-extensionpoints" target="clean"/>
     <ant dir="parse-ext" target="clean"/>
     <ant dir="parse-js" target="clean"/>
+    <ant dir="parse-beehyv" target="clean"/>
     <ant dir="parse-html" target="clean"/>
     <ant dir="parse-swf" target="clean"/>
-    <ant dir="parse-tika" target="clean"/>
+	    <!--<ant dir="parse-tika" target="clean"/>-->
     <ant dir="parse-zip" target="clean"/>
     <ant dir="parse-metatags" target="clean"/>
     <ant dir="protocol-file" target="clean"/>

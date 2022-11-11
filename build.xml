@@ -203,10 +203,12 @@
       <packageset dir="${plugins.dir}/index-metadata/src/java"/>
       <packageset dir="${plugins.dir}/index-more/src/java"/>
       <packageset dir="${plugins.dir}/indexer-elastic/src/java"/>
+      <packageset dir="${plugins.dir}/index-beehyv/src/java"/>
+      <packageset dir="${plugins.dir}/indexer-beehyv/src/java"/>
       <packageset dir="${plugins.dir}/indexer-hbase/src/java"/>
       <packageset dir="${plugins.dir}/indexer-solr/src/java"/>
-      <packageset dir="${plugins.dir}/jsoup-extractor/src/java"/>
-      <packageset dir="${plugins.dir}/jsoup-extractor/src/test"/>
+      <!--   <packageset dir="${plugins.dir}/jsoup-extractor/src/java"/>
+      <packageset dir="${plugins.dir}/jsoup-extractor/src/test"/>-->
       <packageset dir="${plugins.dir}/language-identifier/src/java"/>
       <packageset dir="${plugins.dir}/lib-http/src/java"/>
       <packageset dir="${plugins.dir}/lib-regex-filter/src/java"/>
@@ -215,8 +217,9 @@
       <packageset dir="${plugins.dir}/parse-html/src/java"/>
       <packageset dir="${plugins.dir}/parse-metatags/src/java"/>
       <packageset dir="${plugins.dir}/parse-js/src/java"/>
+      <packageset dir="${plugins.dir}/parse-beehyv/src/java"/>
       <!--packageset dir="${plugins.dir}/parse-swf/src/java"/-->
-      <packageset dir="${plugins.dir}/parse-tika/src/java"/>
+	      <!--<packageset dir="${plugins.dir}/parse-tika/src/java"/>-->
       <!--packageset dir="${plugins.dir}/parse-zip/src/java"/-->
       <packageset dir="${plugins.dir}/protocol-file/src/java"/>
       <packageset dir="${plugins.dir}/protocol-ftp/src/java"/>
@@ -323,7 +326,8 @@
     <!-- ================================================================== -->
  <target name="restdocs" description="--> generate REST API Documentation with Miredot">
 
-    <!-- generate a pom file -->
+   <ivy:dependencytree/>
+	 <!-- generate a pom file -->
    <ivy:makepom ivyfile="${ivy.file}" pomfile="${basedir}/pom.xml" templatefile="ivy/mvn.template">
      <mapping conf="default" scope="compile"/>
      <mapping conf="runtime" scope="runtime"/>
@@ -336,12 +340,12 @@
        <exclusion groupId="com.sun.jmx" artifactId="jmxri" />
      </dependency>
    </artifact:dependencies-->
-
+   <!--
    <artifact:mvn>
     <arg value="test"/>
     <arg value="-e"/>
     <arg value="-o"/>
-    <!-- run offline (-o): must not download dependencies as this is
+     run offline (-o): must not download dependencies as this is
          done from http://repo1.maven.org/ hardwired in
          maven-ant-tasks-2.1.3.jar, see NUTCH-2722.
 
@@ -350,8 +354,9 @@
            `mvn dependency:resolve`
          resp.
            `mvn dependency:resolve-plugins`
-         after the pom.xml has been generated. -->
-   </artifact:mvn>
+         after the pom.xml has been generated. 
+   </artifact:mvn>-->
+	   
  </target>
 
  <!-- ================================================================== -->
@@ -701,11 +706,13 @@
       <packageset dir="${plugins.dir}/index-html/src/java"/>
       <packageset dir="${plugins.dir}/index-metadata/src/java"/>
       <packageset dir="${plugins.dir}/index-more/src/java"/>
-      <!--<packageset dir="${plugins.dir}/indexer-elastic/src/java"/>-->
-      <packageset dir="${plugins.dir}/indexer-elastic2/src/java"/>
+      <!--<packageset dir="${plugins.dir}/indexer-elastic/src/java"/>
+      <packageset dir="${plugins.dir}/indexer-elastic2/src/java"/>-->
+       <packageset dir="${plugins.dir}/index-beehyv/src/java"/>
+	        <packageset dir="${plugins.dir}/indexer-beehyv/src/java"/>
       <packageset dir="${plugins.dir}/indexer-hbase/src/java"/>
       <packageset dir="${plugins.dir}/indexer-solr/src/java"/>
-      <packageset dir="${plugins.dir}/jsoup-extractor/src/java"/>
+	      <!--<packageset dir="${plugins.dir}/jsoup-extractor/src/java"/>-->
       <packageset dir="${plugins.dir}/language-identifier/src/java"/>
       <packageset dir="${plugins.dir}/lib-http/src/java"/>
       <packageset dir="${plugins.dir}/lib-regex-filter/src/java"/>
@@ -715,12 +722,13 @@
       <packageset dir="${plugins.dir}/parse-js/src/java"/>
       <packageset dir="${plugins.dir}/parse-metatags/src/java"/>
       <!--packageset dir="${plugins.dir}/parse-swf/src/java"/-->
-      <packageset dir="${plugins.dir}/parse-tika/src/java"/>
+	      <!--<packageset dir="${plugins.dir}/parse-tika/src/java"/>-->
       <!--packageset dir="${plugins.dir}/parse-zip/src/java"/-->
       <packageset dir="${plugins.dir}/protocol-file/src/java"/>
       <packageset dir="${plugins.dir}/protocol-ftp/src/java"/>
       <packageset dir="${plugins.dir}/protocol-http/src/java"/>
       <packageset dir="${plugins.dir}/protocol-httpclient/src/java"/>
+      <packageset dir="${plugins.dir}/parse-beehyv/src/java"/>
       <packageset dir="${plugins.dir}/protocol-sftp/src/java"/>
       <packageset dir="${plugins.dir}/scoring-link/src/java"/>
       <packageset dir="${plugins.dir}/scoring-opic/src/java"/>
@@ -1067,8 +1075,10 @@
         <source path="${basedir}/src/plugin/feed/src/java/" />
         <source path="${basedir}/src/plugin/feed/src/test/" /> -->
         <source path="${basedir}/src/plugin/indexer-solr/src/java/" />
-      	<!--<source path="${basedir}/src/plugin/indexer-elastic/src/java/" />-->
-      	<source path="${basedir}/src/plugin/indexer-elastic2/src/java/" />
+      	<!--<source path="${basedir}/src/plugin/indexer-elastic/src/java/" />
+	<source path="${basedir}/src/plugin/indexer-elastic2/src/java/" />-->
+	<source path="${basedir}/src/plugin/index-beehyv/src/java/" />
+	<source path="${basedir}/src/plugin/indexer-beehyv/src/java/" />
         <source path="${basedir}/src/plugin/indexer-hbase/src/java/" />
       	<source path="${basedir}/src/plugin/index-anchor/src/java/" />
         <source path="${basedir}/src/plugin/index-anchor/src/test/" />
@@ -1078,8 +1088,8 @@
         <source path="${basedir}/src/plugin/index-metadata/src/java/" />
         <source path="${basedir}/src/plugin/index-more/src/java/" />
         <source path="${basedir}/src/plugin/index-more/src/test/" />
-        <source path="${basedir}/src/plugin/jsoup-extractor/src/java/" />
-        <source path="${basedir}/src/plugin/jsoup-extractor/src/test/" />
+	<!--        <source path="${basedir}/src/plugin/jsoup-extractor/src/java/" />
+	<source path="${basedir}/src/plugin/jsoup-extractor/src/test/" />-->
         <source path="${basedir}/src/plugin/language-identifier/src/java/" />
         <source path="${basedir}/src/plugin/language-identifier/src/test/" />
         <source path="${basedir}/src/plugin/lib-http/src/java/" />
@@ -1096,14 +1106,15 @@
         <source path="${basedir}/src/plugin/parse-js/src/java/" />
         <source path="${basedir}/src/plugin/parse-js/src/test/" />
         <source path="${basedir}/src/plugin/parse-metatags/src/java/" />
-        <source path="${basedir}/src/plugin/parse-metatags/src/test/" />
+	<source path="${basedir}/src/plugin/parse-metatags/src/test/" />
+	<source path="${basedir}/src/plugin/parse-beehyv/src/java/" />
         <!-- parse-swf and parse-zip are currently disabled 
         <source path="${basedir}/src/plugin/parse-swf/src/java/" />
         <source path="${basedir}/src/plugin/parse-swf/src/test/" />
         <source path="${basedir}/src/plugin/parse-zip/src/java/" />
         <source path="${basedir}/src/plugin/parse-zip/src/test/" /> -->
-        <source path="${basedir}/src/plugin/parse-tika/src/java/" />
-        <source path="${basedir}/src/plugin/parse-tika/src/test/" />
+		<!--<source path="${basedir}/src/plugin/parse-tika/src/java/" />-->
+			<!--        <source path="${basedir}/src/plugin/parse-tika/src/test/" />-->
         <source path="${basedir}/src/plugin/protocol-file/src/java/" />
         <source path="${basedir}/src/plugin/protocol-file/src/test/" />
         <source path="${basedir}/src/plugin/protocol-ftp/src/java/" />

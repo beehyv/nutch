@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+  
+  http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<plugin id="indexer-beehyv" name="BeehyvIndexWriter" version="1.0.0"
+  provider-name="beehyv.com">
+
+<runtime>
+    <library name="indexer-beehyv.jar">
+      <export name="*" />
+    </library>
+    
+    <library name="elasticsearch-6.1.2.jar"/>
+    <library name="transport-6.1.2.jar"/>
+    <library name="lucene-analyzers-common-7.1.0.jar"/>
+    <library name="lucene-codecs-7.1.0.jar"/>
+    <library name="lucene-core-7.1.0.jar"/>
+    <library name="lucene-grouping-7.1.0.jar"/>
+    <library name="lucene-highlighter-7.1.0jar"/>
+    <library name="lucene-join-7.1.0.jar"/>
+    <library name="lucene-memory-7.1.0.jar"/>
+    <library name="lucene-misc-7.1.0.jar"/>
+    <library name="lucene-queries-7.1.0.jar"/>
+    <library name="lucene-queryparser-7.1.0.jar"/>
+    <library name="lucene-sandbox-7.1.0.jar"/>
+    <library name="lucene-spatial-7.1.0.jar"/>
+    <library name="lucene-suggest-7.1.0.jar"/>
+    <library name="spatial4j-0.4.1.jar"/>
+    <library name="antlr-runtime-3.5.jar"/>
+    <library name="asm-4.1"/>
+    <library name="asm-commons-4.1.jar"/>
+    <library name="jsr166e-1.1.0.jar" />
+    <library name="tdigest-3.0.jar" />
+    <!--<library name="guava-18.0.jar"/>
+    <library name="netty-3.10.5.jar"/>-->
+    <library name="jackson-core-2.5.3.jar"/>
+    <library name="jackson-dataformat-yaml-2.5.3.jar"/>
+    <library name="jackson-dataformat-smile-2.5.3.jar"/>
+    <library name="jackson-dataformat-cbor-2.5.3.jar"/>
+    <library name="httpcore-4.4.1.jar"/>
+    <library name="document-ingestor-0.0.1-SNAPSHOT.jar"/>
+    <library name="domain-specific-util-0.0.1-SNAPSHOT.jar"/>
+    <library name="ingestion-model-0.0.1-SNAPSHOT.jar"/>
+    <library name="holmes-es-ingestion-0.0.1-SNAPSHOT.jar"/>
+    <library name="holmes-es-model-0.0.1-SNAPSHOT.jar"/>
+    <library name="spring-core-4.0.4.RELEASE.jar"/>
+    <library name="org.springframework.beans-2.5.6.SEC01.jar" />
+  </runtime>
+
+  <requires>
+    <import plugin="nutch-extensionpoints" />
+  </requires>
+
+  <extension id="com.beehyv.nutch.indexwriter.elastic"
+    name="Beehyv Elasticsearch Index Writer"
+    point="org.apache.nutch.indexer.IndexWriter">
+      <implementation id="BeehyvIndexWriter"
+      class="com.beehyv.nutch.indexwriter.elastic.BeehyvIndexWriter" />
+  </extension>
+
+</plugin>

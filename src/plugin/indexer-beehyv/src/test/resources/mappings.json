@@ -1,0 +1,108 @@
+{
+  "attribute": {
+    "_parent": {
+      "type": "doc"
+    },
+    "properties": {
+      "heading": {
+        "type": "string"
+      },
+      "key": {
+        "type": "string"
+      },
+      "sourceUrl": {
+        "type": "string"
+      },
+      "value": {
+        "type": "string"
+      }
+    }
+  },
+  "faq": {
+    "properties": {
+      "answer": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string"
+      },
+      "heading": {
+        "type": "string"
+      },
+      "question": {
+        "type": "string"
+      },
+      "sourceUrl": {
+        "type": "string"
+      },
+      "tenantId": {
+        "type": "long"
+      }
+    }
+  },
+  "section": {
+    "_parent": {
+      "type": "doc"
+    },
+    "properties": {
+      "heading": {
+        "type": "string"
+      },
+      "paragraphs": {
+        "type": "string"
+      },
+      "sourceUrl": {
+        "type": "string"
+      }
+    }
+  },
+  "product": {
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "productType": {
+        "type": "string"
+      }
+    }
+  },
+  "productType": {
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      }
+    }
+  },
+  "doc": {
+    "properties": {
+      "productId": {
+        "type": "string"
+      },
+      "productTypeId": {
+        "type": "string"
+      },
+      "sourceUrl": {
+        "type": "string"
+      },
+      "tenant": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "type": {
+        "type": "string"
+      }
+    }
+  }
+}

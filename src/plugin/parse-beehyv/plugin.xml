@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+        id="parse-beehyv"
+        name="Beehyv Parser Plug-in"
+        version="1.0.0"
+        provider-name="beehyv.com">
+
+    <runtime>
+        <library name="parse-beehyv.jar">
+            <export name="*"/>
+        </library>
+
+	<library name="document-ingestor-0.0.1-SNAPSHOT.jar"/>
+	<library name="domain-specific-util-0.0.1-SNAPSHOT.jar"/>
+	<library name="productpage-extraction-0.0.1-SNAPSHOT.jar"/>
+	<library name="ingestion-model-0.0.1-SNAPSHOT.jar"/>
+	<!--    <library name="tagsoup-1.2.jar" />
+    <library name="super-csv-2.4.0.jar" />
+    <library name="parse-html.jar"/>
+	<library name="pdfbox-2.0.3.jar"/> -->
+
+    </runtime>
+
+
+    <requires>
+        <import plugin="nutch-extensionpoints"/>
+        <import plugin="parse-html" />
+    </requires>
+
+    <extension id="com.beehyv.nutch.parse.BeehyvParser"
+               name="BeehyvParser"
+               point="org.apache.nutch.parse.Parser">
+        <implementation id="com.beehyv.nutch.parse.BeehyvParser"
+                        class="com.beehyv.nutch.parse.BeehyvParser">
+            <parameter name="contentType" value="text/html|application/xhtml+xml"/>
+            <parameter name="pathSuffix" value=""/>           <!-- can optionally specify an encoding parameter now, see NUTCH-564-->
+            <!-- <parameter name="encoding" value="UTF-8"/> -->
+        </implementation>
+    </extension>
+    <extension id="com.beehyv.nutch.parse.RelianceParser"
+               name="RelianceParser"
+               point="org.apache.nutch.parse.Parser">
+        <implementation id="com.beehyv.nutch.parse.RelianceParser"
+                        class="com.beehyv.nutch.parse.RelianceParser">
+            <parameter name="contentType" value="text/html|application/xhtml+xml"/>
+            <parameter name="pathSuffix" value=""/>
+            <!-- can optionally specify an encoding parameter now, see NUTCH-564-->
+            <!-- <parameter name="encoding" value="UTF-8"/> -->
+        </implementation>
+    </extension>
+    <extension id="com.beehyv.nutch.parse.AmazonParser"
+               name="AmazonParser"
+               point="org.apache.nutch.parse.Parser">
+        <implementation id="com.beehyv.nutch.parse.AmazonParser"
+                        class="com.beehyv.nutch.parse.AmazonParser">
+            <parameter name="contentType" value="text/html|application/xhtml+xml"/>
+            <parameter name="pathSuffix" value=""/>
+            <!-- can optionally specify an encoding parameter now, see NUTCH-564-->
+            <!-- <parameter name="encoding" value="UTF-8"/> -->
+        </implementation>
+    </extension>
+    <extension id="com.beehyv.nutch.parse.ProductParser"
+               name="ProductParser"
+               point="org.apache.nutch.parse.Parser">
+        <implementation id="com.beehyv.nutch.parse.ProductParser"
+                                         class="com.beehyv.nutch.parse.ProductParser">
+            <parameter name="contentType" value="text/html|application/xhtml+xml"/>
+            <parameter name="pathSuffix" value=""/>
+        <!-- can optionally specify an encoding parameter now, see NUTCH-564-->
+        <!-- <parameter name="encoding" value="UTF-8"/> -->
+        </implementation>
+    </extension>
+    <extension id="com.beehyv.nutch.parse.BeehyvPdfParser" name="Pdf Parser"
+                point="org.apache.nutch.parse.Parser">
+        <implementation id="com.beehyv.nutch.parse.BeehyvPdfParser"
+                        class="com.beehyv.nutch.parse.BeehyvPdfParser">
+            <parameter name="contentType" value="application/pdf"/>
+            <parameter name="pathSuffix" value=""/>
+        </implementation>
+    </extension>
+    <extension id="com.beehyv.nutch.parse.BeehyvDocxParser" name="Doc/Docx Parser"
+                point="org.apache.nutch.parse.Parser">
+        <implementation id="com.beehyv.nutch.parse.BeehyvDocxParser"
+                        class="com.beehyv.nutch.parse.BeehyvDocxParser">
+            <parameter name="contentType" value="application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
+            <parameter name="pathSuffix" value=""/>
+        </implementation>
+    </extension>
+
+</plugin>

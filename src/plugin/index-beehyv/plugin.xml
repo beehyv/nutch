@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+        id="index-beehyv"
+        name="Beehyv Index Plug-in"
+        version="1.0.0"
+        provider-name="beehyv.com">
+
+    <runtime>
+        <library name="index-beehyv.jar">
+            <export name="*"/>
+        </library>
+    </runtime>
+
+    <requires>
+        <import plugin="nutch-extensionpoints"/>
+        <import plugin="index-basic"/>
+    </requires>
+
+    <extension id="com.beehyv.nutch.indexer"
+               name="BeehyvIndexingFilter"
+               point="org.apache.nutch.indexer.IndexingFilter">
+        <implementation id="BeehyvIndexingFilter"
+                        class="com.beehyv.nutch.indexer.BeehyvIndexingFilter">
+         </implementation>
+
+
+
+    </extension>
+
+</plugin>

@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<ivy-module version="1.0">
+    <info organisation="org.apache.nutch" module="${ant.project.name}">
+        <license name="Apache 2.0"/>
+        <ivyauthor name="Apache Nutch Team" url="http://nutch.apache.org"/>
+        <description>
+            Apache Nutch
+        </description>
+    </info>
+
+    <configurations>
+        <include file="${nutch.root}/ivy/ivy-configurations.xml"/>
+    </configurations>
+
+    <publications>
+        <!--get the artifact from our module name-->
+        <artifact conf="master"/>
+    </publications>
+
+    <dependencies>
+	    <dependency org="org.ccil.cowan.tagsoup" name="tagsoup" rev="1.2"/>
+		    <!--		 <dependency org="org.elasticsearch.client" name="transport" rev="6.1.2"/>
+	    <dependency org="org.elasticsearch" name="elasticsearch" rev="6.1.2"/>-->
+    </dependencies>
+
+</ivy-module>
